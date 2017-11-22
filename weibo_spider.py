@@ -1,6 +1,5 @@
 #coding=utf-8
-import re,time,requests,urllib.request
-from collections import OrderedDict
+import re, time, requests
 
 url = 'https://m.weibo.cn/api/container/getIndex?display=0&retcode=6102&type=uid&value=1733474277&containerid=1076031733474277&page={}'
 headers = {
@@ -13,12 +12,13 @@ headers = {
     'DNT' : '1',
     'Connection' : 'keep-alive',
 }
+all_source = []  # 保存所有微博来源
+all_time = []  # 保存所有微博发送时间
+all_text = []  # 保存所有微博内容
+flag = 1
+page = 1
 
-source_list = []
-time_list = []
-weibo_list = []
-
-for page in range(1, 153):
+while True:
     print('正在爬取第%s页' % page)
     try:
         req = requests.get(url=url.format(page), headers=headers)
@@ -28,20 +28,25 @@ for page in range(1, 153):
     if req.status_code == 200:
         for i in weibo_content:
             try:
-                weibo_text = re.sub('<.*?>', '', i['mblog']['text'])
-                weibo_source = i['mblog']['source']
-                weibo_time = i['mblog']['created_at']
-                source_list.append(weibo_source)
-                time_list.append(weibo_time)
-                weibo_list.append(weibo_text)
+                weibo_text = re.sub('<.*?>', '', i['mblog']['text'])  # 文本内容
+                weibo_source = i['mblog']['source']  # 来源
+                weibo_time = i['mblog']['created_at']  # 时间
+                if weibo_time[:4] == '2016':  # 如果时间为2016年，结束
+                    flag = 0
+                    break
+                all_source.append(weibo_source)
+                all_time.append(weibo_time)
+                all_text.append(weibo_text)
             except:
-                print("sleep...")
-                #time.sleep(3)
+                pass
+    if flag == 0:
+        break
+    page += 1
     time.sleep(3)
 
+# 将数据写入到文件
 with open('tianyuax_weibo.txt', 'w+', encoding='utf-8') as f:
-    for i in range(len(source_list)):
-        f.writelines("[" + time_list[i] + " from: " + source_list[i] + "] " + weibo_list[i] + '\n')
-        #f.writelines("时间: " + time_list[i] + "来源: " + source_list[i] + '\n')
+    for i in range(len(all_source)):
+        f.writelines("[" + all_time[i] + " from: " + all_source[i] + "] " + all_text[i] + '\n')
 
 
