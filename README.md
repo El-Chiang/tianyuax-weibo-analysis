@@ -1,9 +1,7 @@
 # tianyuax-weibo-analysis
 ## 简介
 
-爬取天喵2017年微博并进行分析。
-
-
+爬取天喵2017年微博并进行分析。  
 
 ## 安装环境
 
@@ -16,8 +14,6 @@
 - wordcloud
 
 - snownlp
-
-  ​
 
 ## 功能
 
@@ -36,19 +32,15 @@
     - 利用`wordcloud`制作词云图
     - 利用`snownlp`做情感分析
 
-
-
 ## 盲目分析
 
 ### 时间分布
 
 根据以下的天分布图和月分布图可以看出，在6月发的微博最多，一共发了206条，在11月最少。之所以只有两条是因为在10月24日那天他的微博总数达到了9999条而他想一直保持这个数量，所以在这之后每发一条又删掉。回头再分析一下每个月的词频最高的是哪些词。
 
-![天分布图](img\amount_day.png)
+![天分布图](https://github.com/El-Chiang/tianyuax-weibo-analysis/blob/master/img/amount_day.png?raw=true)
 
-
-
-![月分布图](img\amount_month.png)
+![月分布图](https://github.com/El-Chiang/tianyuax-weibo-analysis/blob/master/img/amount_month.png?raw=true)
 
 ### 词云统计
 
@@ -61,17 +53,13 @@
 - 就是只知道吃系列：炸鸡 汉堡 炒饭 肯德基 好吃 维导
 - 还有些乱七八糟的主题：陈奕迅 知乎 抽奖 
 
-
-
-![weibo_wc](img\weibo_wc.png)
+![weibo_wc](https://raw.githubusercontent.com/El-Chiang/tianyuax-weibo-analysis/master/img/weibo_wc.png)
 
 ### 情感分析
 
 这是AI分析的跟我没有关系，横轴情感值纵轴微博条数，情感值越低越消极（
 
-![Sentiment Analysis](img\Sentiment Analysis.png)
-
-
+![Sentiment Analysis](https://github.com/El-Chiang/tianyuax-weibo-analysis/blob/master/img/Sentiment%20Analysis.png?raw=true)
 
 ## 总结
 
