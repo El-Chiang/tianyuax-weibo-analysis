@@ -53,7 +53,7 @@
 - 就是只知道吃系列：炸鸡 汉堡 炒饭 肯德基 好吃 维导
 - 还有些乱七八糟的主题：陈奕迅 知乎 抽奖 
 
-![weibo_wc](https://raw.githubusercontent.com/El-Chiang/tianyuax-weibo-analysis/master/img/weibo_wc.png)
+![weibo_wc](https://github.com/El-Chiang/tianyuax-weibo-analysis/blob/master/img/weibo_wc.png?raw=true)
 
 ### 情感分析
 
