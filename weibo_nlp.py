@@ -24,7 +24,7 @@ def read_file(fname='tianyuax_weibo.txt'):
 def word2cloud(textlist):
     fulltext = ''
     isCN = 1
-    back_coloring = imread("bg.png")
+    back_coloring = imread("img/bg.png")
     cloud = WordCloud(font_path='font.ttf', # 若是有中文必须添加font.tff
             background_color="white",  # 背景颜色
             max_words=1800,  # 词云显示的最大词数
@@ -39,7 +39,7 @@ def word2cloud(textlist):
     image_colors = ImageColorGenerator(back_coloring)
     plt.figure("wordc")
     plt.imshow(wc.recolor(color_func=image_colors))
-    wc.to_file('weibo_wc.png')
+    wc.to_file('img/weibo_wc.png')
 
 def snow_analysis(textlist):
     sentimentslist = []
@@ -50,10 +50,9 @@ def snow_analysis(textlist):
     plt.hist(sentimentslist, bins=np.arange(0,1,0.02), color='#B28FCE')
     plt.xlabel('Sentiment Value')
     plt.ylabel('Weibo Amount')
-    plt.savefig('Sentiment Analysis')
-    plt.show()
+    plt.savefig('img/Sentiment Analysis')
 
 if __name__ == '__main__':
     all_text = read_file()
-    #word2cloud(all_text)
+    word2cloud(all_text)
     snow_analysis(all_text)

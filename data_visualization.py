@@ -36,8 +36,7 @@ plt.bar(X_m, month_counts, facecolor = 'lightskyblue')
 for x,y in zip(X_m,month_counts):
     plt.text(x, y+0.05, '%d' % y, ha='center', va= 'bottom')
 plt.xticks(X_m)
-plt.savefig('amount_month.png')
-plt.show()
+plt.savefig('img/amount_month.png')
 plt.close()
 
 # 开始做第二个图
@@ -47,6 +46,5 @@ plt.xlabel('Day')  # 横轴：天数
 plt.ylabel('Weibo Amount')  # 纵轴：微博数量
 # plt.bar(X_d, day_counts, facecolor = 'lightskyblue')
 pl.plot(X_d, day_counts, linewidth=0.5, color='red')
-plt.savefig('amount_day.png')
-plt.show()
+plt.savefig('img/amount_day.png')
 plt.close()
